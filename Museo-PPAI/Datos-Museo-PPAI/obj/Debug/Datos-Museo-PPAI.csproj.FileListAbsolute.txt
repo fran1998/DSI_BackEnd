@@ -1,0 +1,12 @@
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\Datos-Museo-PPAI.dll.config
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\Datos-Museo-PPAI.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\Datos-Museo-PPAI.pdb
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\obj\Debug\Datos-Museo-PPAI.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\obj\Debug\Datos-Museo-PPAI.csproj.CopyComplete
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\obj\Debug\Datos-Museo-PPAI.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\obj\Debug\Datos-Museo-PPAI.pdb
+C:\Users\Administrador\source\repos\Museo-PPAI\Datos-Museo-PPAI\obj\Debug\Datos-Museo-PPAI.csprojAssemblyReference.cache

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DSI_PPAI_MuseoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DetallesExposiciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="obra" Type="int" />
+    <Property Name="idExp" Type="int" />
+    <Property Name="lugarAsignado" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Escuelas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="domicilio" Type="varchar" MaxLength="50" />
+    <Property Name="mail" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="telefCelular" Type="varchar" MaxLength="50" />
+    <Property Name="telefFijo" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exposiciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="sede" Type="int" />
+    <Property Name="fechaFin" Type="date" />
+    <Property Name="fechaFinReplanificada" Type="date" />
+    <Property Name="fechaInicio" Type="date" />
+    <Property Name="fechaInicioReplanificada" Type="date" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="tipoExp" Type="int" />
+    <Property Name="horaApertura" Type="time" Precision="0" />
+    <Property Name="horaCierre" Type="time" Precision="7" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExpXPublico">
+    <Key>
+      <PropertyRef Name="idExp" />
+      <PropertyRef Name="idPublico" />
+    </Key>
+    <Property Name="idExp" Type="int" Nullable="false" />
+    <Property Name="idPublico" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Obras">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="alto" Type="int" />
+    <Property Name="ancho" Type="int" />
+    <Property Name="codigoSensor" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="fechaCreacion" Type="date" />
+    <Property Name="fechaPrimerIngreso" Type="date" />
+    <Property Name="nombreObra" Type="varchar" MaxLength="50" />
+    <Property Name="peso" Type="float" />
+    <Property Name="valuacion" Type="int" />
+    <Property Name="duracionExtendida" Type="time" Precision="0" />
+    <Property Name="duracionResumida" Type="time" Precision="0" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PublicosDestino">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="caracteristicas" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sedes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="cantMaxVisitantes" Type="int" />
+    <Property Name="cantMaxPorGuia" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoExposiciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoVisitas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DetallesExposiciones_Exposiciones">
+    <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="0..1" />
+    <End Role="DetallesExposiciones" Type="Self.DetallesExposiciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exposiciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetallesExposiciones">
+        <PropertyRef Name="idExp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallesExposiciones_Obras">
+    <End Role="Obras" Type="Self.Obras" Multiplicity="0..1" />
+    <End Role="DetallesExposiciones" Type="Self.DetallesExposiciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obras">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetallesExposiciones">
+        <PropertyRef Name="obra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exposiciones_Sedes">
+    <End Role="Sedes" Type="Self.Sedes" Multiplicity="0..1" />
+    <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sedes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Exposiciones">
+        <PropertyRef Name="sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exposiciones_TipoExposiciones">
+    <End Role="TipoExposiciones" Type="Self.TipoExposiciones" Multiplicity="0..1" />
+    <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoExposiciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Exposiciones">
+        <PropertyRef Name="tipoExp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpXPublico_Exposiciones">
+    <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="1" />
+    <End Role="ExpXPublico" Type="Self.ExpXPublico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exposiciones">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ExpXPublico">
+        <PropertyRef Name="idExp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpXPublico_PublicosDestino">
+    <End Role="PublicosDestino" Type="Self.PublicosDestino" Multiplicity="1" />
+    <End Role="ExpXPublico" Type="Self.ExpXPublico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PublicosDestino">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ExpXPublico">
+        <PropertyRef Name="idPublico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DSI_PPAI_MuseoModelStoreContainer">
+    <EntitySet Name="DetallesExposiciones" EntityType="Self.DetallesExposiciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Escuelas" EntityType="Self.Escuelas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exposiciones" EntityType="Self.Exposiciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpXPublico" EntityType="Self.ExpXPublico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Obras" EntityType="Self.Obras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PublicosDestino" EntityType="Self.PublicosDestino" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sedes" EntityType="Self.Sedes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoExposiciones" EntityType="Self.TipoExposiciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoVisitas" EntityType="Self.TipoVisitas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DetallesExposiciones_Exposiciones" Association="Self.FK_DetallesExposiciones_Exposiciones">
+      <End Role="Exposiciones" EntitySet="Exposiciones" />
+      <End Role="DetallesExposiciones" EntitySet="DetallesExposiciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallesExposiciones_Obras" Association="Self.FK_DetallesExposiciones_Obras">
+      <End Role="Obras" EntitySet="Obras" />
+      <End Role="DetallesExposiciones" EntitySet="DetallesExposiciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exposiciones_Sedes" Association="Self.FK_Exposiciones_Sedes">
+      <End Role="Sedes" EntitySet="Sedes" />
+      <End Role="Exposiciones" EntitySet="Exposiciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exposiciones_TipoExposiciones" Association="Self.FK_Exposiciones_TipoExposiciones">
+      <End Role="TipoExposiciones" EntitySet="TipoExposiciones" />
+      <End Role="Exposiciones" EntitySet="Exposiciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpXPublico_Exposiciones" Association="Self.FK_ExpXPublico_Exposiciones">
+      <End Role="Exposiciones" EntitySet="Exposiciones" />
+      <End Role="ExpXPublico" EntitySet="ExpXPublico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpXPublico_PublicosDestino" Association="Self.FK_ExpXPublico_PublicosDestino">
+      <End Role="PublicosDestino" EntitySet="PublicosDestino" />
+      <End Role="ExpXPublico" EntitySet="ExpXPublico" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

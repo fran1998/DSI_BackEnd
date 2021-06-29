@@ -1,0 +1,15 @@
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\NegocioMuseo.dll.config
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\NegocioMuseo.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\NegocioMuseo.pdb
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\Datos-Museo-PPAI.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\Datos-Museo-PPAI.pdb
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\Datos-Museo-PPAI.dll.config
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\obj\Debug\NegocioMuseo.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\obj\Debug\NegocioMuseo.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\obj\Debug\NegocioMuseo.csproj.CopyComplete
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\obj\Debug\NegocioMuseo.dll
+C:\Users\Administrador\source\repos\Museo-PPAI\NegocioMuseo\obj\Debug\NegocioMuseo.pdb

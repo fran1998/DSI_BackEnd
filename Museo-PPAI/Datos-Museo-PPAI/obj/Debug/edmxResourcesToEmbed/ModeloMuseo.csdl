@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DSI_PPAI_MuseoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Escuelas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="domicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefFijo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Sedes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="cantMaxVisitantes" Type="Int32" />
+    <Property Name="cantMaxPorGuia" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="TipoVisitas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="DSI_PPAI_MuseoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Escuelas" EntityType="Self.Escuelas" />
+    <EntitySet Name="Sedes" EntityType="Self.Sedes" />
+    <EntitySet Name="TipoVisitas" EntityType="Self.TipoVisitas" />
+  </EntityContainer>
+</Schema>

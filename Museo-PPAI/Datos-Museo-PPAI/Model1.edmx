@@ -1,0 +1,1360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DSI_PPAI_MuseoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AsignacionesVisitas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="numeroReserva" Type="int" />
+          <Property Name="empleado" Type="int" />
+          <Property Name="fechaFin" Type="date" />
+          <Property Name="fechaInicio" Type="date" />
+          <Property Name="horaFin" Type="time" Precision="0" />
+          <Property Name="horaInicio" Type="time" Precision="0" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CambiosEstados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="fechaFin" Type="date" />
+          <Property Name="fechaInicio" Type="date" />
+          <Property Name="horaFin" Type="time" Precision="0" />
+          <Property Name="horaInicio" Type="time" Precision="0" />
+          <Property Name="numeroReserva" Type="int" />
+          <Property Name="estado" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetallesExposiciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="obra" Type="int" />
+          <Property Name="idExp" Type="int" />
+          <Property Name="lugarAsignado" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DiasSemana">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DiaXHorario">
+          <Key>
+            <PropertyRef Name="idDia" />
+            <PropertyRef Name="idHorario" />
+          </Key>
+          <Property Name="idDia" Type="int" Nullable="false" />
+          <Property Name="idHorario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="cuit" />
+          </Key>
+          <Property Name="sede" Type="int" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="cuit" Type="int" Nullable="false" />
+          <Property Name="dni" Type="int" />
+          <Property Name="codigoVerificacion" Type="int" />
+          <Property Name="domicilio" Type="varchar" MaxLength="50" />
+          <Property Name="fechaIngreso" Type="date" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="sexo" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="cargo" Type="int" />
+          <Property Name="horario" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EmpXhorarios">
+          <Key>
+            <PropertyRef Name="idEmp" />
+            <PropertyRef Name="idHorario" />
+          </Key>
+          <Property Name="idEmp" Type="int" Nullable="false" />
+          <Property Name="idHorario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Escuelas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="domicilio" Type="varchar" MaxLength="50" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="telefCelular" Type="varchar" MaxLength="50" />
+          <Property Name="telefFijo" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="ambito" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exposiciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sede" Type="int" />
+          <Property Name="fechaFin" Type="date" />
+          <Property Name="fechaFinReplanificada" Type="date" />
+          <Property Name="fechaInicio" Type="date" />
+          <Property Name="fechaInicioReplanificada" Type="date" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="tipoExp" Type="int" />
+          <Property Name="horaApertura" Type="time" Precision="0" />
+          <Property Name="horaCierre" Type="time" Precision="7" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExpXPublico">
+          <Key>
+            <PropertyRef Name="idExp" />
+            <PropertyRef Name="idPublico" />
+          </Key>
+          <Property Name="idExp" Type="int" Nullable="false" />
+          <Property Name="idPublico" Type="int" Nullable="false" />
+          <Property Name="nada" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HorariosEmpleados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="horaIngreso" Type="time" Precision="0" />
+          <Property Name="horaSalida" Type="time" Precision="0" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Obras">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="alto" Type="int" />
+          <Property Name="ancho" Type="int" />
+          <Property Name="codigoSensor" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="fechaPrimerIngreso" Type="date" />
+          <Property Name="nombreObra" Type="varchar" MaxLength="50" />
+          <Property Name="peso" Type="float" />
+          <Property Name="valuacion" Type="int" />
+          <Property Name="duracionExtendida" Type="time" Precision="0" />
+          <Property Name="duracionResumida" Type="time" Precision="0" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PublicosDestino">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="caracteristicas" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReservasVisitas">
+          <Key>
+            <PropertyRef Name="numeroReserva" />
+          </Key>
+          <Property Name="cantidadAlumnos" Type="int" />
+          <Property Name="cantidadAlumnosConfirmada" Type="int" />
+          <Property Name="sede" Type="int" />
+          <Property Name="duracionEstimada" Type="float" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="escuela" Type="int" />
+          <Property Name="horaCreacion" Type="time" Precision="0" />
+          <Property Name="horaInicioReal" Type="time" Precision="0" />
+          <Property Name="horaFinReal" Type="time" Precision="0" />
+          <Property Name="numeroReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResXExp">
+          <Key>
+            <PropertyRef Name="numeroReserva" />
+            <PropertyRef Name="idExp" />
+          </Key>
+          <Property Name="numeroReserva" Type="int" Nullable="false" />
+          <Property Name="idExp" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sedes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="cantMaxVisitantes" Type="int" />
+          <Property Name="cantMaxPorGuia" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TipoExposiciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoVisitas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="contraseña" Type="varchar" MaxLength="50" />
+          <Property Name="caducidad" Type="date" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empleado" Type="int" />
+        </EntityType>
+        <Association Name="FK_AsignacionesVisitas_Empleados">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="AsignacionesVisitas" Type="Self.AsignacionesVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="cuit" />
+            </Principal>
+            <Dependent Role="AsignacionesVisitas">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AsignacionesVisitas_ReservasVisitas">
+          <End Role="ReservasVisitas" Type="Self.ReservasVisitas" Multiplicity="0..1" />
+          <End Role="AsignacionesVisitas" Type="Self.AsignacionesVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservasVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Principal>
+            <Dependent Role="AsignacionesVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CambiosEstados_Estados">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="0..1" />
+          <End Role="CambiosEstados" Type="Self.CambiosEstados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CambiosEstados">
+              <PropertyRef Name="estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CambiosEstados_ReservasVisitas">
+          <End Role="ReservasVisitas" Type="Self.ReservasVisitas" Multiplicity="0..1" />
+          <End Role="CambiosEstados" Type="Self.CambiosEstados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservasVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Principal>
+            <Dependent Role="CambiosEstados">
+              <PropertyRef Name="numeroReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallesExposiciones_Exposiciones">
+          <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="0..1" />
+          <End Role="DetallesExposiciones" Type="Self.DetallesExposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exposiciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetallesExposiciones">
+              <PropertyRef Name="idExp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallesExposiciones_Obras">
+          <End Role="Obras" Type="Self.Obras" Multiplicity="0..1" />
+          <End Role="DetallesExposiciones" Type="Self.DetallesExposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obras">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetallesExposiciones">
+              <PropertyRef Name="obra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiaXHorario_DiasSemana">
+          <End Role="DiasSemana" Type="Self.DiasSemana" Multiplicity="1" />
+          <End Role="DiaXHorario" Type="Self.DiaXHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiasSemana">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DiaXHorario">
+              <PropertyRef Name="idDia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiaXHorario_HorariosEmpleados">
+          <End Role="HorariosEmpleados" Type="Self.HorariosEmpleados" Multiplicity="1" />
+          <End Role="DiaXHorario" Type="Self.DiaXHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorariosEmpleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DiaXHorario">
+              <PropertyRef Name="idHorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleados_Cargos">
+          <End Role="Cargos" Type="Self.Cargos" Multiplicity="0..1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="cargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleados_Sedes">
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="0..1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpXHorarios_Empleados">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="EmpXhorarios" Type="Self.EmpXhorarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="cuit" />
+            </Principal>
+            <Dependent Role="EmpXhorarios">
+              <PropertyRef Name="idEmp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpXhorarios_HorariosEmpleados">
+          <End Role="HorariosEmpleados" Type="Self.HorariosEmpleados" Multiplicity="1" />
+          <End Role="EmpXhorarios" Type="Self.EmpXhorarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorariosEmpleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmpXhorarios">
+              <PropertyRef Name="idHorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exposiciones_Sedes">
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="0..1" />
+          <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Exposiciones">
+              <PropertyRef Name="sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exposiciones_TipoExposiciones">
+          <End Role="TipoExposiciones" Type="Self.TipoExposiciones" Multiplicity="0..1" />
+          <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoExposiciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Exposiciones">
+              <PropertyRef Name="tipoExp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpXPublico_Exposiciones">
+          <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="1" />
+          <End Role="ExpXPublico" Type="Self.ExpXPublico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exposiciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ExpXPublico">
+              <PropertyRef Name="idExp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpXPublico_PublicosDestino">
+          <End Role="PublicosDestino" Type="Self.PublicosDestino" Multiplicity="1" />
+          <End Role="ExpXPublico" Type="Self.ExpXPublico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PublicosDestino">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ExpXPublico">
+              <PropertyRef Name="idPublico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservasVisitas_Escuelas">
+          <End Role="Escuelas" Type="Self.Escuelas" Multiplicity="0..1" />
+          <End Role="ReservasVisitas" Type="Self.ReservasVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Escuelas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ReservasVisitas">
+              <PropertyRef Name="escuela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservasVisitas_Sedes">
+          <End Role="Sedes" Type="Self.Sedes" Multiplicity="0..1" />
+          <End Role="ReservasVisitas" Type="Self.ReservasVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ReservasVisitas">
+              <PropertyRef Name="sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResXExp_Exposiciones">
+          <End Role="Exposiciones" Type="Self.Exposiciones" Multiplicity="1" />
+          <End Role="ResXExp" Type="Self.ResXExp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exposiciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResXExp">
+              <PropertyRef Name="idExp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResXExp_ReservasVisitas">
+          <End Role="ReservasVisitas" Type="Self.ReservasVisitas" Multiplicity="1" />
+          <End Role="ResXExp" Type="Self.ResXExp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservasVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Principal>
+            <Dependent Role="ResXExp">
+              <PropertyRef Name="numeroReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Empleados">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="cuit" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DSI_PPAI_MuseoModelStoreContainer">
+          <EntitySet Name="AsignacionesVisitas" EntityType="Self.AsignacionesVisitas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CambiosEstados" EntityType="Self.CambiosEstados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cargos" EntityType="Self.Cargos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallesExposiciones" EntityType="Self.DetallesExposiciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiasSemana" EntityType="Self.DiasSemana" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiaXHorario" EntityType="Self.DiaXHorario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpXhorarios" EntityType="Self.EmpXhorarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Escuelas" EntityType="Self.Escuelas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exposiciones" EntityType="Self.Exposiciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpXPublico" EntityType="Self.ExpXPublico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HorariosEmpleados" EntityType="Self.HorariosEmpleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Obras" EntityType="Self.Obras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublicosDestino" EntityType="Self.PublicosDestino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservasVisitas" EntityType="Self.ReservasVisitas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResXExp" EntityType="Self.ResXExp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sedes" EntityType="Self.Sedes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoExposiciones" EntityType="Self.TipoExposiciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVisitas" EntityType="Self.TipoVisitas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AsignacionesVisitas_Empleados" Association="Self.FK_AsignacionesVisitas_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="AsignacionesVisitas" EntitySet="AsignacionesVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AsignacionesVisitas_ReservasVisitas" Association="Self.FK_AsignacionesVisitas_ReservasVisitas">
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+            <End Role="AsignacionesVisitas" EntitySet="AsignacionesVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CambiosEstados_Estados" Association="Self.FK_CambiosEstados_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="CambiosEstados" EntitySet="CambiosEstados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CambiosEstados_ReservasVisitas" Association="Self.FK_CambiosEstados_ReservasVisitas">
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+            <End Role="CambiosEstados" EntitySet="CambiosEstados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallesExposiciones_Exposiciones" Association="Self.FK_DetallesExposiciones_Exposiciones">
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+            <End Role="DetallesExposiciones" EntitySet="DetallesExposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallesExposiciones_Obras" Association="Self.FK_DetallesExposiciones_Obras">
+            <End Role="Obras" EntitySet="Obras" />
+            <End Role="DetallesExposiciones" EntitySet="DetallesExposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiaXHorario_DiasSemana" Association="Self.FK_DiaXHorario_DiasSemana">
+            <End Role="DiasSemana" EntitySet="DiasSemana" />
+            <End Role="DiaXHorario" EntitySet="DiaXHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiaXHorario_HorariosEmpleados" Association="Self.FK_DiaXHorario_HorariosEmpleados">
+            <End Role="HorariosEmpleados" EntitySet="HorariosEmpleados" />
+            <End Role="DiaXHorario" EntitySet="DiaXHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleados_Cargos" Association="Self.FK_Empleados_Cargos">
+            <End Role="Cargos" EntitySet="Cargos" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleados_Sedes" Association="Self.FK_Empleados_Sedes">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpXHorarios_Empleados" Association="Self.FK_EmpXHorarios_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="EmpXhorarios" EntitySet="EmpXhorarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpXhorarios_HorariosEmpleados" Association="Self.FK_EmpXhorarios_HorariosEmpleados">
+            <End Role="HorariosEmpleados" EntitySet="HorariosEmpleados" />
+            <End Role="EmpXhorarios" EntitySet="EmpXhorarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exposiciones_Sedes" Association="Self.FK_Exposiciones_Sedes">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exposiciones_TipoExposiciones" Association="Self.FK_Exposiciones_TipoExposiciones">
+            <End Role="TipoExposiciones" EntitySet="TipoExposiciones" />
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpXPublico_Exposiciones" Association="Self.FK_ExpXPublico_Exposiciones">
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+            <End Role="ExpXPublico" EntitySet="ExpXPublico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpXPublico_PublicosDestino" Association="Self.FK_ExpXPublico_PublicosDestino">
+            <End Role="PublicosDestino" EntitySet="PublicosDestino" />
+            <End Role="ExpXPublico" EntitySet="ExpXPublico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservasVisitas_Escuelas" Association="Self.FK_ReservasVisitas_Escuelas">
+            <End Role="Escuelas" EntitySet="Escuelas" />
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservasVisitas_Sedes" Association="Self.FK_ReservasVisitas_Sedes">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResXExp_Exposiciones" Association="Self.FK_ResXExp_Exposiciones">
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+            <End Role="ResXExp" EntitySet="ResXExp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResXExp_ReservasVisitas" Association="Self.FK_ResXExp_ReservasVisitas">
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+            <End Role="ResXExp" EntitySet="ResXExp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Empleados" Association="Self.FK_Usuarios_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DSI_PPAI_MuseoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Escuelas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="domicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefFijo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ReservasVisitas" Relationship="DSI_PPAI_MuseoModel.FK_ReservasVisitas_Escuelas" FromRole="Escuelas" ToRole="ReservasVisitas" />
+        </EntityType>
+        <EntityType Name="Sedes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="cantMaxVisitantes" Type="Int32" />
+          <Property Name="cantMaxPorGuia" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exposiciones" Relationship="DSI_PPAI_MuseoModel.FK_Exposiciones_Sedes" FromRole="Sedes" ToRole="Exposiciones" />
+          <NavigationProperty Name="Empleados" Relationship="DSI_PPAI_MuseoModel.FK_Empleados_Sedes" FromRole="Sedes" ToRole="Empleados" />
+          <NavigationProperty Name="ReservasVisitas" Relationship="DSI_PPAI_MuseoModel.FK_ReservasVisitas_Sedes" FromRole="Sedes" ToRole="ReservasVisitas" />
+        </EntityType>
+        <EntityType Name="TipoVisitas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="DSI_PPAI_MuseoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Escuelas" EntityType="Self.Escuelas" />
+          <EntitySet Name="Sedes" EntityType="Self.Sedes" />
+          <EntitySet Name="TipoVisitas" EntityType="Self.TipoVisitas" />
+          <EntitySet Name="Exposiciones" EntityType="DSI_PPAI_MuseoModel.Exposiciones" />
+          <EntitySet Name="PublicosDestino" EntityType="DSI_PPAI_MuseoModel.PublicosDestino" />
+          <EntitySet Name="TipoExposiciones" EntityType="DSI_PPAI_MuseoModel.TipoExposiciones" />
+          <AssociationSet Name="FK_Exposiciones_Sedes" Association="DSI_PPAI_MuseoModel.FK_Exposiciones_Sedes">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exposiciones_TipoExposiciones" Association="DSI_PPAI_MuseoModel.FK_Exposiciones_TipoExposiciones">
+            <End Role="TipoExposiciones" EntitySet="TipoExposiciones" />
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="ExpXPublico" Association="DSI_PPAI_MuseoModel.ExpXPublico">
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+            <End Role="PublicosDestino" EntitySet="PublicosDestino" />
+          </AssociationSet>
+          <EntitySet Name="AsignacionesVisitas" EntityType="DSI_PPAI_MuseoModel.AsignacionesVisitas" />
+          <EntitySet Name="CambiosEstados" EntityType="DSI_PPAI_MuseoModel.CambiosEstados" />
+          <EntitySet Name="Cargos" EntityType="DSI_PPAI_MuseoModel.Cargos" />
+          <EntitySet Name="DetallesExposiciones" EntityType="DSI_PPAI_MuseoModel.DetallesExposiciones" />
+          <EntitySet Name="DiasSemana" EntityType="DSI_PPAI_MuseoModel.DiasSemana" />
+          <EntitySet Name="Empleados" EntityType="DSI_PPAI_MuseoModel.Empleados" />
+          <EntitySet Name="Estados" EntityType="DSI_PPAI_MuseoModel.Estados" />
+          <EntitySet Name="HorariosEmpleados" EntityType="DSI_PPAI_MuseoModel.HorariosEmpleados" />
+          <EntitySet Name="Obras" EntityType="DSI_PPAI_MuseoModel.Obras" />
+          <EntitySet Name="ReservasVisitas" EntityType="DSI_PPAI_MuseoModel.ReservasVisitas" />
+          <EntitySet Name="Usuarios" EntityType="DSI_PPAI_MuseoModel.Usuarios" />
+          <AssociationSet Name="FK_AsignacionesVisitas_Empleados" Association="DSI_PPAI_MuseoModel.FK_AsignacionesVisitas_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="AsignacionesVisitas" EntitySet="AsignacionesVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AsignacionesVisitas_ReservasVisitas" Association="DSI_PPAI_MuseoModel.FK_AsignacionesVisitas_ReservasVisitas">
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+            <End Role="AsignacionesVisitas" EntitySet="AsignacionesVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CambiosEstados_Estados" Association="DSI_PPAI_MuseoModel.FK_CambiosEstados_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="CambiosEstados" EntitySet="CambiosEstados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CambiosEstados_ReservasVisitas" Association="DSI_PPAI_MuseoModel.FK_CambiosEstados_ReservasVisitas">
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+            <End Role="CambiosEstados" EntitySet="CambiosEstados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleados_Cargos" Association="DSI_PPAI_MuseoModel.FK_Empleados_Cargos">
+            <End Role="Cargos" EntitySet="Cargos" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallesExposiciones_Exposiciones" Association="DSI_PPAI_MuseoModel.FK_DetallesExposiciones_Exposiciones">
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+            <End Role="DetallesExposiciones" EntitySet="DetallesExposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallesExposiciones_Obras" Association="DSI_PPAI_MuseoModel.FK_DetallesExposiciones_Obras">
+            <End Role="Obras" EntitySet="Obras" />
+            <End Role="DetallesExposiciones" EntitySet="DetallesExposiciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleados_Sedes" Association="DSI_PPAI_MuseoModel.FK_Empleados_Sedes">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Empleados" Association="DSI_PPAI_MuseoModel.FK_Usuarios_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservasVisitas_Escuelas" Association="DSI_PPAI_MuseoModel.FK_ReservasVisitas_Escuelas">
+            <End Role="Escuelas" EntitySet="Escuelas" />
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservasVisitas_Sedes" Association="DSI_PPAI_MuseoModel.FK_ReservasVisitas_Sedes">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+          </AssociationSet>
+          <AssociationSet Name="DiaXHorario" Association="DSI_PPAI_MuseoModel.DiaXHorario">
+            <End Role="DiasSemana" EntitySet="DiasSemana" />
+            <End Role="HorariosEmpleados" EntitySet="HorariosEmpleados" />
+          </AssociationSet>
+          <AssociationSet Name="EmpXhorarios" Association="DSI_PPAI_MuseoModel.EmpXhorarios">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="HorariosEmpleados" EntitySet="HorariosEmpleados" />
+          </AssociationSet>
+          <AssociationSet Name="ResXExp" Association="DSI_PPAI_MuseoModel.ResXExp">
+            <End Role="Exposiciones" EntitySet="Exposiciones" />
+            <End Role="ReservasVisitas" EntitySet="ReservasVisitas" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="DSI_PPAI_MuseoModel.sysdiagrams" />
+        </EntityContainer>
+        <EntityType Name="Exposiciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="sede" Type="Int32" />
+          <Property Name="fechaFin" Type="DateTime" Precision="0" />
+          <Property Name="fechaFinReplanificada" Type="DateTime" Precision="0" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="fechaInicioReplanificada" Type="DateTime" Precision="0" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoExp" Type="Int32" />
+          <Property Name="horaApertura" Type="Time" Precision="0" />
+          <Property Name="horaCierre" Type="Time" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sedes" Relationship="DSI_PPAI_MuseoModel.FK_Exposiciones_Sedes" FromRole="Exposiciones" ToRole="Sedes" />
+          <NavigationProperty Name="TipoExposiciones" Relationship="DSI_PPAI_MuseoModel.FK_Exposiciones_TipoExposiciones" FromRole="Exposiciones" ToRole="TipoExposiciones" />
+          <NavigationProperty Name="PublicosDestino" Relationship="DSI_PPAI_MuseoModel.ExpXPublico" FromRole="Exposiciones" ToRole="PublicosDestino" />
+          <NavigationProperty Name="DetallesExposiciones" Relationship="DSI_PPAI_MuseoModel.FK_DetallesExposiciones_Exposiciones" FromRole="Exposiciones" ToRole="DetallesExposiciones" />
+          <NavigationProperty Name="ReservasVisitas" Relationship="DSI_PPAI_MuseoModel.ResXExp" FromRole="Exposiciones" ToRole="ReservasVisitas" />
+        </EntityType>
+        <EntityType Name="PublicosDestino">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="caracteristicas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exposiciones" Relationship="DSI_PPAI_MuseoModel.ExpXPublico" FromRole="PublicosDestino" ToRole="Exposiciones" />
+        </EntityType>
+        <EntityType Name="TipoExposiciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exposiciones" Relationship="DSI_PPAI_MuseoModel.FK_Exposiciones_TipoExposiciones" FromRole="TipoExposiciones" ToRole="Exposiciones" />
+        </EntityType>
+        <Association Name="FK_Exposiciones_Sedes">
+          <End Type="DSI_PPAI_MuseoModel.Sedes" Role="Sedes" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.Exposiciones" Role="Exposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Exposiciones">
+              <PropertyRef Name="sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exposiciones_TipoExposiciones">
+          <End Type="DSI_PPAI_MuseoModel.TipoExposiciones" Role="TipoExposiciones" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.Exposiciones" Role="Exposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoExposiciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Exposiciones">
+              <PropertyRef Name="tipoExp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExpXPublico">
+          <End Type="DSI_PPAI_MuseoModel.Exposiciones" Role="Exposiciones" Multiplicity="*" />
+          <End Type="DSI_PPAI_MuseoModel.PublicosDestino" Role="PublicosDestino" Multiplicity="*" />
+        </Association>
+        <EntityType Name="AsignacionesVisitas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="numeroReserva" Type="Int32" />
+          <Property Name="empleado" Type="Int32" />
+          <Property Name="fechaFin" Type="DateTime" Precision="0" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="horaFin" Type="Time" Precision="0" />
+          <Property Name="horaInicio" Type="Time" Precision="0" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Empleados" Relationship="DSI_PPAI_MuseoModel.FK_AsignacionesVisitas_Empleados" FromRole="AsignacionesVisitas" ToRole="Empleados" />
+          <NavigationProperty Name="ReservasVisitas" Relationship="DSI_PPAI_MuseoModel.FK_AsignacionesVisitas_ReservasVisitas" FromRole="AsignacionesVisitas" ToRole="ReservasVisitas" />
+        </EntityType>
+        <EntityType Name="CambiosEstados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="fechaFin" Type="DateTime" Precision="0" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="horaFin" Type="Time" Precision="0" />
+          <Property Name="horaInicio" Type="Time" Precision="0" />
+          <Property Name="numeroReserva" Type="Int32" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Estados" Relationship="DSI_PPAI_MuseoModel.FK_CambiosEstados_Estados" FromRole="CambiosEstados" ToRole="Estados" />
+          <NavigationProperty Name="ReservasVisitas" Relationship="DSI_PPAI_MuseoModel.FK_CambiosEstados_ReservasVisitas" FromRole="CambiosEstados" ToRole="ReservasVisitas" />
+        </EntityType>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Empleados" Relationship="DSI_PPAI_MuseoModel.FK_Empleados_Cargos" FromRole="Cargos" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="DetallesExposiciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="obra" Type="Int32" />
+          <Property Name="idExp" Type="Int32" />
+          <Property Name="lugarAsignado" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exposiciones" Relationship="DSI_PPAI_MuseoModel.FK_DetallesExposiciones_Exposiciones" FromRole="DetallesExposiciones" ToRole="Exposiciones" />
+          <NavigationProperty Name="Obras" Relationship="DSI_PPAI_MuseoModel.FK_DetallesExposiciones_Obras" FromRole="DetallesExposiciones" ToRole="Obras" />
+        </EntityType>
+        <EntityType Name="DiasSemana">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="HorariosEmpleados" Relationship="DSI_PPAI_MuseoModel.DiaXHorario" FromRole="DiasSemana" ToRole="HorariosEmpleados" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="cuit" />
+          </Key>
+          <Property Name="sede" Type="Int32" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cuit" Type="Int32" Nullable="false" />
+          <Property Name="dni" Type="Int32" />
+          <Property Name="codigoVerificacion" Type="Int32" />
+          <Property Name="domicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cargo" Type="Int32" />
+          <Property Name="horario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="AsignacionesVisitas" Relationship="DSI_PPAI_MuseoModel.FK_AsignacionesVisitas_Empleados" FromRole="Empleados" ToRole="AsignacionesVisitas" />
+          <NavigationProperty Name="Cargos" Relationship="DSI_PPAI_MuseoModel.FK_Empleados_Cargos" FromRole="Empleados" ToRole="Cargos" />
+          <NavigationProperty Name="Sedes" Relationship="DSI_PPAI_MuseoModel.FK_Empleados_Sedes" FromRole="Empleados" ToRole="Sedes" />
+          <NavigationProperty Name="Usuarios" Relationship="DSI_PPAI_MuseoModel.FK_Usuarios_Empleados" FromRole="Empleados" ToRole="Usuarios" />
+          <NavigationProperty Name="HorariosEmpleados" Relationship="DSI_PPAI_MuseoModel.EmpXhorarios" FromRole="Empleados" ToRole="HorariosEmpleados" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="ambito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CambiosEstados" Relationship="DSI_PPAI_MuseoModel.FK_CambiosEstados_Estados" FromRole="Estados" ToRole="CambiosEstados" />
+        </EntityType>
+        <EntityType Name="HorariosEmpleados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="horaIngreso" Type="Time" Precision="0" />
+          <Property Name="horaSalida" Type="Time" Precision="0" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DiasSemana" Relationship="DSI_PPAI_MuseoModel.DiaXHorario" FromRole="HorariosEmpleados" ToRole="DiasSemana" />
+          <NavigationProperty Name="Empleados" Relationship="DSI_PPAI_MuseoModel.EmpXhorarios" FromRole="HorariosEmpleados" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Obras">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="alto" Type="Int32" />
+          <Property Name="ancho" Type="Int32" />
+          <Property Name="codigoSensor" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="fechaPrimerIngreso" Type="DateTime" Precision="0" />
+          <Property Name="nombreObra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="peso" Type="Double" />
+          <Property Name="valuacion" Type="Int32" />
+          <Property Name="duracionExtendida" Type="Time" Precision="0" />
+          <Property Name="duracionResumida" Type="Time" Precision="0" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DetallesExposiciones" Relationship="DSI_PPAI_MuseoModel.FK_DetallesExposiciones_Obras" FromRole="Obras" ToRole="DetallesExposiciones" />
+        </EntityType>
+        <EntityType Name="ReservasVisitas">
+          <Key>
+            <PropertyRef Name="numeroReserva" />
+          </Key>
+          <Property Name="cantidadAlumnos" Type="Int32" />
+          <Property Name="cantidadAlumnosConfirmada" Type="Int32" />
+          <Property Name="sede" Type="Int32" />
+          <Property Name="duracionEstimada" Type="Double" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="escuela" Type="Int32" />
+          <Property Name="horaCreacion" Type="Time" Precision="0" />
+          <Property Name="horaInicioReal" Type="Time" Precision="0" />
+          <Property Name="horaFinReal" Type="Time" Precision="0" />
+          <Property Name="numeroReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AsignacionesVisitas" Relationship="DSI_PPAI_MuseoModel.FK_AsignacionesVisitas_ReservasVisitas" FromRole="ReservasVisitas" ToRole="AsignacionesVisitas" />
+          <NavigationProperty Name="CambiosEstados" Relationship="DSI_PPAI_MuseoModel.FK_CambiosEstados_ReservasVisitas" FromRole="ReservasVisitas" ToRole="CambiosEstados" />
+          <NavigationProperty Name="Escuelas" Relationship="DSI_PPAI_MuseoModel.FK_ReservasVisitas_Escuelas" FromRole="ReservasVisitas" ToRole="Escuelas" />
+          <NavigationProperty Name="Sedes" Relationship="DSI_PPAI_MuseoModel.FK_ReservasVisitas_Sedes" FromRole="ReservasVisitas" ToRole="Sedes" />
+          <NavigationProperty Name="Exposiciones" Relationship="DSI_PPAI_MuseoModel.ResXExp" FromRole="ReservasVisitas" ToRole="Exposiciones" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="caducidad" Type="DateTime" Precision="0" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empleado" Type="Int32" />
+          <NavigationProperty Name="Empleados" Relationship="DSI_PPAI_MuseoModel.FK_Usuarios_Empleados" FromRole="Usuarios" ToRole="Empleados" />
+        </EntityType>
+        <Association Name="FK_AsignacionesVisitas_Empleados">
+          <End Type="DSI_PPAI_MuseoModel.Empleados" Role="Empleados" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.AsignacionesVisitas" Role="AsignacionesVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="cuit" />
+            </Principal>
+            <Dependent Role="AsignacionesVisitas">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AsignacionesVisitas_ReservasVisitas">
+          <End Type="DSI_PPAI_MuseoModel.ReservasVisitas" Role="ReservasVisitas" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.AsignacionesVisitas" Role="AsignacionesVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservasVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Principal>
+            <Dependent Role="AsignacionesVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CambiosEstados_Estados">
+          <End Type="DSI_PPAI_MuseoModel.Estados" Role="Estados" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.CambiosEstados" Role="CambiosEstados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CambiosEstados">
+              <PropertyRef Name="estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CambiosEstados_ReservasVisitas">
+          <End Type="DSI_PPAI_MuseoModel.ReservasVisitas" Role="ReservasVisitas" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.CambiosEstados" Role="CambiosEstados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservasVisitas">
+              <PropertyRef Name="numeroReserva" />
+            </Principal>
+            <Dependent Role="CambiosEstados">
+              <PropertyRef Name="numeroReserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleados_Cargos">
+          <End Type="DSI_PPAI_MuseoModel.Cargos" Role="Cargos" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="cargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallesExposiciones_Exposiciones">
+          <End Type="DSI_PPAI_MuseoModel.Exposiciones" Role="Exposiciones" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.DetallesExposiciones" Role="DetallesExposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exposiciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetallesExposiciones">
+              <PropertyRef Name="idExp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallesExposiciones_Obras">
+          <End Type="DSI_PPAI_MuseoModel.Obras" Role="Obras" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.DetallesExposiciones" Role="DetallesExposiciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obras">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetallesExposiciones">
+              <PropertyRef Name="obra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleados_Sedes">
+          <End Type="DSI_PPAI_MuseoModel.Sedes" Role="Sedes" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Empleados">
+          <End Type="DSI_PPAI_MuseoModel.Empleados" Role="Empleados" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="cuit" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservasVisitas_Escuelas">
+          <End Type="DSI_PPAI_MuseoModel.Escuelas" Role="Escuelas" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.ReservasVisitas" Role="ReservasVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Escuelas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ReservasVisitas">
+              <PropertyRef Name="escuela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservasVisitas_Sedes">
+          <End Type="DSI_PPAI_MuseoModel.Sedes" Role="Sedes" Multiplicity="0..1" />
+          <End Type="DSI_PPAI_MuseoModel.ReservasVisitas" Role="ReservasVisitas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ReservasVisitas">
+              <PropertyRef Name="sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DiaXHorario">
+          <End Type="DSI_PPAI_MuseoModel.DiasSemana" Role="DiasSemana" Multiplicity="*" />
+          <End Type="DSI_PPAI_MuseoModel.HorariosEmpleados" Role="HorariosEmpleados" Multiplicity="*" />
+        </Association>
+        <Association Name="EmpXhorarios">
+          <End Type="DSI_PPAI_MuseoModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <End Type="DSI_PPAI_MuseoModel.HorariosEmpleados" Role="HorariosEmpleados" Multiplicity="*" />
+        </Association>
+        <Association Name="ResXExp">
+          <End Type="DSI_PPAI_MuseoModel.Exposiciones" Role="Exposiciones" Multiplicity="*" />
+          <End Type="DSI_PPAI_MuseoModel.ReservasVisitas" Role="ReservasVisitas" Multiplicity="*" />
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DSI_PPAI_MuseoModelStoreContainer" CdmEntityContainer="DSI_PPAI_MuseoEntities1">
+          <EntitySetMapping Name="Escuelas">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Escuelas">
+              <MappingFragment StoreEntitySet="Escuelas">
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="telefCelular" ColumnName="telefCelular" />
+                <ScalarProperty Name="telefFijo" ColumnName="telefFijo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedes">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Sedes">
+              <MappingFragment StoreEntitySet="Sedes">
+                <ScalarProperty Name="cantMaxVisitantes" ColumnName="cantMaxVisitantes" />
+                <ScalarProperty Name="cantMaxPorGuia" ColumnName="cantMaxPorGuia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVisitas">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.TipoVisitas">
+              <MappingFragment StoreEntitySet="TipoVisitas">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exposiciones">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Exposiciones">
+              <MappingFragment StoreEntitySet="Exposiciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaCierre" ColumnName="horaCierre" />
+                <ScalarProperty Name="horaApertura" ColumnName="horaApertura" />
+                <ScalarProperty Name="tipoExp" ColumnName="tipoExp" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaInicioReplanificada" ColumnName="fechaInicioReplanificada" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFinReplanificada" ColumnName="fechaFinReplanificada" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="sede" ColumnName="sede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublicosDestino">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.PublicosDestino">
+              <MappingFragment StoreEntitySet="PublicosDestino">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="caracteristicas" ColumnName="caracteristicas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoExposiciones">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.TipoExposiciones">
+              <MappingFragment StoreEntitySet="TipoExposiciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ExpXPublico" TypeName="DSI_PPAI_MuseoModel.ExpXPublico" StoreEntitySet="ExpXPublico">
+            <EndProperty Name="PublicosDestino">
+              <ScalarProperty Name="id" ColumnName="idPublico" />
+            </EndProperty>
+            <EndProperty Name="Exposiciones">
+              <ScalarProperty Name="id" ColumnName="idExp" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="AsignacionesVisitas">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.AsignacionesVisitas">
+              <MappingFragment StoreEntitySet="AsignacionesVisitas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="empleado" ColumnName="empleado" />
+                <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CambiosEstados">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.CambiosEstados">
+              <MappingFragment StoreEntitySet="CambiosEstados">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargos">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Cargos">
+              <MappingFragment StoreEntitySet="Cargos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetallesExposiciones">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.DetallesExposiciones">
+              <MappingFragment StoreEntitySet="DetallesExposiciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lugarAsignado" ColumnName="lugarAsignado" />
+                <ScalarProperty Name="idExp" ColumnName="idExp" />
+                <ScalarProperty Name="obra" ColumnName="obra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiasSemana">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.DiasSemana">
+              <MappingFragment StoreEntitySet="DiasSemana">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Empleados">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="horario" ColumnName="horario" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="codigoVerificacion" ColumnName="codigoVerificacion" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="cuit" ColumnName="cuit" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="sede" ColumnName="sede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="ambito" ColumnName="ambito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HorariosEmpleados">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.HorariosEmpleados">
+              <MappingFragment StoreEntitySet="HorariosEmpleados">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaSalida" ColumnName="horaSalida" />
+                <ScalarProperty Name="horaIngreso" ColumnName="horaIngreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Obras">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Obras">
+              <MappingFragment StoreEntitySet="Obras">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="duracionResumida" ColumnName="duracionResumida" />
+                <ScalarProperty Name="duracionExtendida" ColumnName="duracionExtendida" />
+                <ScalarProperty Name="valuacion" ColumnName="valuacion" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="nombreObra" ColumnName="nombreObra" />
+                <ScalarProperty Name="fechaPrimerIngreso" ColumnName="fechaPrimerIngreso" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="codigoSensor" ColumnName="codigoSensor" />
+                <ScalarProperty Name="ancho" ColumnName="ancho" />
+                <ScalarProperty Name="alto" ColumnName="alto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservasVisitas">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.ReservasVisitas">
+              <MappingFragment StoreEntitySet="ReservasVisitas">
+                <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+                <ScalarProperty Name="horaFinReal" ColumnName="horaFinReal" />
+                <ScalarProperty Name="horaInicioReal" ColumnName="horaInicioReal" />
+                <ScalarProperty Name="horaCreacion" ColumnName="horaCreacion" />
+                <ScalarProperty Name="escuela" ColumnName="escuela" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="duracionEstimada" ColumnName="duracionEstimada" />
+                <ScalarProperty Name="sede" ColumnName="sede" />
+                <ScalarProperty Name="cantidadAlumnosConfirmada" ColumnName="cantidadAlumnosConfirmada" />
+                <ScalarProperty Name="cantidadAlumnos" ColumnName="cantidadAlumnos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="empleado" ColumnName="empleado" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="caducidad" ColumnName="caducidad" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DiaXHorario" TypeName="DSI_PPAI_MuseoModel.DiaXHorario" StoreEntitySet="DiaXHorario">
+            <EndProperty Name="HorariosEmpleados">
+              <ScalarProperty Name="id" ColumnName="idHorario" />
+            </EndProperty>
+            <EndProperty Name="DiasSemana">
+              <ScalarProperty Name="id" ColumnName="idDia" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EmpXhorarios" TypeName="DSI_PPAI_MuseoModel.EmpXhorarios" StoreEntitySet="EmpXhorarios">
+            <EndProperty Name="HorariosEmpleados">
+              <ScalarProperty Name="id" ColumnName="idHorario" />
+            </EndProperty>
+            <EndProperty Name="Empleados">
+              <ScalarProperty Name="cuit" ColumnName="idEmp" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ResXExp" TypeName="DSI_PPAI_MuseoModel.ResXExp" StoreEntitySet="ResXExp">
+            <EndProperty Name="ReservasVisitas">
+              <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+            </EndProperty>
+            <EndProperty Name="Exposiciones">
+              <ScalarProperty Name="id" ColumnName="idExp" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

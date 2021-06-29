@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DSI_PPAI_MuseoModelStoreContainer" CdmEntityContainer="DSI_PPAI_MuseoEntities1">
+    <EntitySetMapping Name="AsignacionesVisitas">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.AsignacionesVisitas">
+        <MappingFragment StoreEntitySet="AsignacionesVisitas">
+          <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+          <ScalarProperty Name="empleado" ColumnName="empleado" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CambiosEstados">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.CambiosEstados">
+        <MappingFragment StoreEntitySet="CambiosEstados">
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+          <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Cargos">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetallesExposiciones">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.DetallesExposiciones">
+        <MappingFragment StoreEntitySet="DetallesExposiciones">
+          <ScalarProperty Name="obra" ColumnName="obra" />
+          <ScalarProperty Name="idExp" ColumnName="idExp" />
+          <ScalarProperty Name="lugarAsignado" ColumnName="lugarAsignado" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiasSemana">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.DiasSemana">
+        <MappingFragment StoreEntitySet="DiasSemana">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="sede" ColumnName="sede" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="codigoVerificacion" ColumnName="codigoVerificacion" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Escuelas">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Escuelas">
+        <MappingFragment StoreEntitySet="Escuelas">
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefCelular" ColumnName="telefCelular" />
+          <ScalarProperty Name="telefFijo" ColumnName="telefFijo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Estados">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="ambito" ColumnName="ambito" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exposiciones">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Exposiciones">
+        <MappingFragment StoreEntitySet="Exposiciones">
+          <ScalarProperty Name="sede" ColumnName="sede" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaFinReplanificada" ColumnName="fechaFinReplanificada" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaInicioReplanificada" ColumnName="fechaInicioReplanificada" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tipoExp" ColumnName="tipoExp" />
+          <ScalarProperty Name="horaApertura" ColumnName="horaApertura" />
+          <ScalarProperty Name="horaCierre" ColumnName="horaCierre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HorariosEmpleados">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.HorariosEmpleados">
+        <MappingFragment StoreEntitySet="HorariosEmpleados">
+          <ScalarProperty Name="horaIngreso" ColumnName="horaIngreso" />
+          <ScalarProperty Name="horaSalida" ColumnName="horaSalida" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Obras">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Obras">
+        <MappingFragment StoreEntitySet="Obras">
+          <ScalarProperty Name="alto" ColumnName="alto" />
+          <ScalarProperty Name="ancho" ColumnName="ancho" />
+          <ScalarProperty Name="codigoSensor" ColumnName="codigoSensor" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+          <ScalarProperty Name="fechaPrimerIngreso" ColumnName="fechaPrimerIngreso" />
+          <ScalarProperty Name="nombreObra" ColumnName="nombreObra" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="valuacion" ColumnName="valuacion" />
+          <ScalarProperty Name="duracionExtendida" ColumnName="duracionExtendida" />
+          <ScalarProperty Name="duracionResumida" ColumnName="duracionResumida" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublicosDestino">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.PublicosDestino">
+        <MappingFragment StoreEntitySet="PublicosDestino">
+          <ScalarProperty Name="caracteristicas" ColumnName="caracteristicas" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReservasVisitas">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.ReservasVisitas">
+        <MappingFragment StoreEntitySet="ReservasVisitas">
+          <ScalarProperty Name="cantidadAlumnos" ColumnName="cantidadAlumnos" />
+          <ScalarProperty Name="cantidadAlumnosConfirmada" ColumnName="cantidadAlumnosConfirmada" />
+          <ScalarProperty Name="sede" ColumnName="sede" />
+          <ScalarProperty Name="duracionEstimada" ColumnName="duracionEstimada" />
+          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+          <ScalarProperty Name="escuela" ColumnName="escuela" />
+          <ScalarProperty Name="horaCreacion" ColumnName="horaCreacion" />
+          <ScalarProperty Name="horaInicioReal" ColumnName="horaInicioReal" />
+          <ScalarProperty Name="horaFinReal" ColumnName="horaFinReal" />
+          <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sedes">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Sedes">
+        <MappingFragment StoreEntitySet="Sedes">
+          <ScalarProperty Name="cantMaxVisitantes" ColumnName="cantMaxVisitantes" />
+          <ScalarProperty Name="cantMaxPorGuia" ColumnName="cantMaxPorGuia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoExposiciones">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.TipoExposiciones">
+        <MappingFragment StoreEntitySet="TipoExposiciones">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVisitas">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.TipoVisitas">
+        <MappingFragment StoreEntitySet="TipoVisitas">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="caducidad" ColumnName="caducidad" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empleado" ColumnName="empleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DiaXHorario" TypeName="DSI_PPAI_MuseoModel.DiaXHorario" StoreEntitySet="DiaXHorario">
+      <EndProperty Name="DiasSemana">
+        <ScalarProperty Name="id" ColumnName="idDia" />
+      </EndProperty>
+      <EndProperty Name="HorariosEmpleados">
+        <ScalarProperty Name="id" ColumnName="idHorario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmpXhorarios" TypeName="DSI_PPAI_MuseoModel.EmpXhorarios" StoreEntitySet="EmpXhorarios">
+      <EndProperty Name="Empleados">
+        <ScalarProperty Name="cuit" ColumnName="idEmp" />
+      </EndProperty>
+      <EndProperty Name="HorariosEmpleados">
+        <ScalarProperty Name="id" ColumnName="idHorario" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ExpXPublico" TypeName="DSI_PPAI_MuseoModel.ExpXPublico" StoreEntitySet="ExpXPublico">
+      <EndProperty Name="Exposiciones">
+        <ScalarProperty Name="id" ColumnName="idExp" />
+      </EndProperty>
+      <EndProperty Name="PublicosDestino">
+        <ScalarProperty Name="id" ColumnName="idPublico" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ResXExp" TypeName="DSI_PPAI_MuseoModel.ResXExp" StoreEntitySet="ResXExp">
+      <EndProperty Name="Exposiciones">
+        <ScalarProperty Name="id" ColumnName="idExp" />
+      </EndProperty>
+      <EndProperty Name="ReservasVisitas">
+        <ScalarProperty Name="numeroReserva" ColumnName="numeroReserva" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

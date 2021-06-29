@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DSI_PPAI_MuseoModelStoreContainer" CdmEntityContainer="DSI_PPAI_MuseoEntities">
+    <EntitySetMapping Name="Escuelas">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Escuelas">
+        <MappingFragment StoreEntitySet="Escuelas">
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefCelular" ColumnName="telefCelular" />
+          <ScalarProperty Name="telefFijo" ColumnName="telefFijo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sedes">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.Sedes">
+        <MappingFragment StoreEntitySet="Sedes">
+          <ScalarProperty Name="cantMaxVisitantes" ColumnName="cantMaxVisitantes" />
+          <ScalarProperty Name="cantMaxPorGuia" ColumnName="cantMaxPorGuia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVisitas">
+      <EntityTypeMapping TypeName="DSI_PPAI_MuseoModel.TipoVisitas">
+        <MappingFragment StoreEntitySet="TipoVisitas">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
